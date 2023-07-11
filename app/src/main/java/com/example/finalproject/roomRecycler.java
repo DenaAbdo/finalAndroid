@@ -19,7 +19,7 @@ public class roomRecycler extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+        sqLiteDatabase.execSQL("CREATE TABLE Room(ROOM TEXT PRIMARY KEY  NOT NULL, Area TEXT NOT NULL, num TEXT NOT NULL)");
     }
 
     @Override

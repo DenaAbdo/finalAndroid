@@ -1,5 +1,6 @@
 package com.example.finalproject;
 
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
@@ -15,6 +16,7 @@ import androidx.annotation.NonNull;
 //import androidx.navigation.ui.NavigationUI;
 //import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -56,6 +58,33 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        roomRecycler roomRecycler = new roomRecycler(MainActivity.this);
+        Cursor cursor = roomRecycler.getAll();
+        RecyclerView roomsView = findViewById(R.id.my_recycler);
+        if(cursor.getCount() == 0)    {
+
+            Toast.makeText(MainActivity.this,"No data to show",Toast.LENGTH_LONG).show();
+
+        }else{
+            String[] rooms = new String[Room.rooms.length];
+            String[] area = new String[Room.rooms.length];
+            String[] num = new String[Room.rooms.length];
+            while (cursor.moveToNext()){
+
+
+                for(int i = 0; i<rooms.length;i++){
+                    rooms[i] = Room.rooms[i].getRoom();
+                    area[i] = Room.rooms[i].getArea();
+                    num[i] = Room.rooms[i].getNum();
+                }
+              /*  roomRecycler.setLayoutManager(new LinearLayoutManager(this));
+                roomRecycler adapter = new MyAdapter(rooms, area, num);
+                roomRecycler.setAdapter(adapter);*/
+                //listItem.add("Reservation ID: " + cursor.getString(0)+" Area: "+cursor.getString(1) + " Number Od Rooms: ");
+            }
+        }
+
 
     }
 
