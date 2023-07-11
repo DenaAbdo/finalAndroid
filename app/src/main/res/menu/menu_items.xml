@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        app:showAsAction="always"
+        android:title=" "
+        android:icon="@drawable/baseline_menu_24">
+        <menu>
+            <item
+                app:showAsAction="always"
+                android:title="profile"
+                android:id="@+id/profile"
+                android:icon="@drawable/baseline_account_circle_24"/>
+            <item
+                android:title="home"
+                android:id="@+id/home"
+                app:showAction="never"
+                android:icon="@drawable/baseline_home_24"/>
+
+            <item
+                android:title="My Stay"
+                android:id="@+id/mystay"
+                app:showAsAction="never"
+                android:icon="@drawable/baseline_single_bed_24"
+                />
+            <item
+                android:title="Order Service"
+                android:icon="@drawable/baseline_room_service_24"
+                android:id="@+id/orderService"
+                app:showAsAction="never"
+            />
+            <item
+                android:id="@+id/payment"
+                android:icon="@drawable/baseline_payment_24"
+                android:title="Bills and Payments"
+                app:showAsAction="never"
+            />
+            <item
+                android:title="log out"
+                android:id="@+id/logut"
+                android:icon="@drawable/baseline_logout_24"
+                app:showAsAction="never"
+                />
+        </menu>
+
+    </item>
+</menu>
