@@ -16,7 +16,9 @@ import androidx.annotation.NonNull;
 //import androidx.navigation.ui.NavigationUI;
 //import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -29,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.home){
+            setContentView(R.layout.main_activity);
             Toast.makeText(this, "you have clicked on home", Toast.LENGTH_SHORT).show();
             return true;
         }
@@ -37,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         else if(id == R.id.orderService){
-
+            //setContentView(R.layout.services);
             Toast.makeText(this, "You clicked on order service", Toast.LENGTH_SHORT).show();
             return true;
         }
@@ -46,10 +49,12 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         else if(id == R.id.logut){
+            //setContentView(R.layout.signin);
             Toast.makeText(this, "You clicked on logout", Toast.LENGTH_SHORT).show();
             return true;
         }
         else if(id == R.id.profile){
+            setContentView(R.layout.profile);
             Toast.makeText(this, "YOu clicked on profile", Toast.LENGTH_SHORT).show();
         }
             return super.onOptionsItemSelected(item);
@@ -78,9 +83,9 @@ public class MainActivity extends AppCompatActivity {
                     area[i] = Room.rooms[i].getArea();
                     num[i] = Room.rooms[i].getNum();
                 }
-              /*  roomRecycler.setLayoutManager(new LinearLayoutManager(this));
-                roomRecycler adapter = new MyAdapter(rooms, area, num);
-                roomRecycler.setAdapter(adapter);*/
+              roomRecycler.setLayoutManager(new LinearLayoutManager(this));
+                MyAdapter adapter = new MyAdapter(rooms, area, num);
+                roomRecycler.setAdapter(adapter);
                 //listItem.add("Reservation ID: " + cursor.getString(0)+" Area: "+cursor.getString(1) + " Number Od Rooms: ");
             }
         }

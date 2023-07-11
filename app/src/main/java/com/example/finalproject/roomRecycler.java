@@ -6,11 +6,15 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class roomRecycler extends SQLiteOpenHelper {
     private Context contex;
     public static final String DATABASE_NAME ="db";
     public static final int DATABASE_VERSION =1;
+    private RecyclerView.LayoutManager layoutManager;
+
 
     public roomRecycler(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -33,5 +37,12 @@ public class roomRecycler extends SQLiteOpenHelper {
             return cursor;
     }
 
+    public void setAdapter(MyAdapter adapter) {
+        setAdapter(adapter);
+    }
+
+    public void setLayoutManager(LinearLayoutManager linearLayoutManager) {
+        this.layoutManager = layoutManager;
+    }
 }
 
